@@ -7,7 +7,6 @@ from sklearn.model_selection import train_test_split
 from config import Config
 from utils.dataset import MultiLabelDataset
 from models.model import BertForMultiLabelClassification
-from utils.metrics import compute_metrics
 import os
 
 def train():

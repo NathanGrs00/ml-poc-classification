@@ -11,5 +11,5 @@ class Config:
     csv_path: str = "data/data.csv"
     label_cols: list = None
     text_col: str = "comment"
-    output_dir: str = "./outputs"
-    model_save_path: str = "./outputs/model.pt"
+    output_dir: str = "outputs"
+    model_save_path: str = "outputs/model.pt"
