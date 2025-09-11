@@ -1,11 +1,11 @@
 import torch
 from config import Config
-from model import BertForMultiLabelClassification
-from dataset import MultiLabelDataset
+from models.model import BertForMultiLabelClassification
+from utils.dataset import MultiLabelDataset
 from transformers import BertTokenizer
 import pandas as pd
 from torch.utils.data import DataLoader
-from metrics import compute_metrics
+from utils.metrics import compute_metrics
 
 def evaluate():
     cfg = Config()
