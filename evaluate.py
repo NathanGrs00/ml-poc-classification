@@ -10,7 +10,7 @@ from metrics import compute_metrics
 def evaluate():
     cfg = Config()
 
-    df = pd.read_csv(cfg.csv_path)
+    df = pd.read_csv(cfg.csv_path, delimiter=';')
     cfg.label_cols = [col for col in df.columns if col != cfg.text_col]
 
     tokenizer = BertTokenizer.from_pretrained(cfg.model_name)

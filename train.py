@@ -1,17 +1,18 @@
 import pandas as pd
 import torch
 from torch.utils.data import DataLoader
-from transformers import BertTokenizer, AdamW
+from transformers import BertTokenizer
+from torch.optim import AdamW
 from sklearn.model_selection import train_test_split
 from config import Config
-from dataset import MultiLabelDataset
-from model import BertForMultiLabelClassification
-from metrics import compute_metrics
+from utils.dataset import MultiLabelDataset
+from models.model import BertForMultiLabelClassification
+from utils.metrics import compute_metrics
 import os
 
 def train():
     cfg = Config()
-    df = pd.read_csv(cfg.csv_path)
+    df = pd.read_csv(cfg.csv_path, delimiter=';')
     cfg.label_cols = [col for col in df.columns if col != cfg.text_col]
 
     tokenizer = BertTokenizer.from_pretrained(cfg.model_name)
