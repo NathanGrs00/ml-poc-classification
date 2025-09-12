@@ -11,7 +11,7 @@ import os
 
 def train():
     cfg = Config()
-    df = pd.read_csv(cfg.csv_path, delimiter=';')
+    df = pd.read_csv('data/data.csv', delimiter=';')
     cfg.label_cols = [col for col in df.columns if col != cfg.text_col]
 
     tokenizer = BertTokenizer.from_pretrained(cfg.model_name)

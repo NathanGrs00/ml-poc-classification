@@ -4,13 +4,14 @@ from models.model import BertForMultiLabelClassification
 from utils.dataset import MultiLabelDataset
 from transformers import BertTokenizer
 import pandas as pd
+import numpy as np
 from torch.utils.data import DataLoader
 from utils.metrics import compute_metrics
 
 def evaluate():
     cfg = Config()
 
-    df = pd.read_csv(cfg.csv_path, delimiter=';')
+    df = pd.read_csv('data/data.csv', delimiter=';')
     cfg.label_cols = [col for col in df.columns if col != cfg.text_col]
 
     tokenizer = BertTokenizer.from_pretrained(cfg.model_name)
@@ -42,6 +43,8 @@ def evaluate():
             all_preds.extend(preds)
             all_labels.extend(labels)
 
+    all_preds = (np.array(all_preds) > 0.5).astype(int)
+    all_labels = np.array(all_labels).astype(int)
     metrics = compute_metrics(np.array(all_preds), np.array(all_labels))
     print(metrics)
 
