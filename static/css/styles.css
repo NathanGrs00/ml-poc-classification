@@ -1,0 +1,17 @@
+body {
+    background: bisque;
+}
+
+label {
+    font-weight: bold;
+}
+
+textarea {
+    background: #c4af89;
+}
+
+button {
+    background: #b3af93;
+    padding: 10px;
+    border-radius: 10px;
+}
