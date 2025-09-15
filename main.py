@@ -22,13 +22,21 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.get_json()
-    text = data['text']
+    if request.is_json:
+        data = request.get_json()
+        text = data.get('text', '')
+    else:
+        text = request.form.get('text', '')
+
+    if not text:
+        return jsonify({'error': 'No text provided'}), 400
+
     encoding = tokenizer([text], truncation=True, padding=True, max_length=cfg.max_length, return_tensors='pt')
     with torch.no_grad():
         logits = model(encoding['input_ids'], encoding['attention_mask'])
         probs = torch.sigmoid(logits).cpu().numpy()[0]
         result = (probs > 0.5).astype(int).tolist()
+
     return jsonify({'result': result, 'probs': probs.tolist()})
 
 if __name__ == '__main__':
