@@ -22,11 +22,8 @@ def index():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    if request.is_json:
-        data = request.get_json()
-        text = data.get('text', '')
-    else:
-        text = request.form.get('text', '')
+    data = request.get_json()
+    text = data.get('text', '') if data else ''
 
     if not text:
         return jsonify({'error': 'No text provided'}), 400
@@ -37,7 +34,11 @@ def predict():
         probs = torch.sigmoid(logits).cpu().numpy()[0]
         result = (probs > 0.5).astype(int).tolist()
 
-    return jsonify({'result': result, 'probs': probs.tolist()})
+    return jsonify({
+        'result': result,
+        'probs': probs.tolist(),
+        'labels': cfg.label_cols
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)
