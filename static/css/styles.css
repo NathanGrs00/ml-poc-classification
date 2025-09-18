@@ -8,6 +8,7 @@ label {
 
 textarea {
     background: #c4af89;
+    resize: none;
 }
 
 button {
