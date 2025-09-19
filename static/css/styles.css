@@ -1,5 +1,9 @@
 body {
     background: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 label {
