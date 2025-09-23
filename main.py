@@ -1,8 +1,6 @@
 # Importing necessary libraries
 from flask import Flask, render_template, request, jsonify
 import torch
-from transformers import BertTokenizer
-from multilabel_classifier.models.model import BertForMultiLabelClassification
 from multilabel_classifier.config import Config
 import pandas as pd
 
