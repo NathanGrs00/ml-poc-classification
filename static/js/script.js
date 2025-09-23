@@ -26,11 +26,11 @@ document.getElementById('submit-btn').onclick = function() {
 
             // Gets the result div from the HTML and updates its innerHTML.
             // InnerHTML means that it can contain HTML tags.
-            document.getElementById('result').innerHTML = `
             // Strong means that the text is bold.
             // ${variable} is used to insert the value of a variable into a string.
             // In this case it inserts all the active labels joined by a comma.
             // If there are no active labels, it shows 'None'.
+            document.getElementById('result').innerHTML = `
             <strong>Detected Labels:</strong> ${activeLabels.join(', ') || 'None'}
         `;
         })
