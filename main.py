@@ -55,7 +55,7 @@ def predict():
         # these probabilities indicate the likelihood of each label being present
         probs = torch.sigmoid(logits).cpu().numpy()[0]
         # Convert probabilities to binary results (0 or 1) based on a threshold of 0.5
-        result = (probs > 0.5).astype(int).tolist()
+        result = (probs > 0.3).astype(int).tolist()
 
     # Return the results as a JSON response
     return jsonify({

@@ -21,10 +21,13 @@ def train():
     # Tokenizer to convert text to tokens, this is needed for BERT
     tokenizer = BertTokenizer.from_pretrained(cfg.model_name)
     # Split the data into training set
-    train_texts, train_labels = df[cfg.text_col].tolist(), df[cfg.label_cols].values.tolist()
+    train_texts = df[cfg.text_col].tolist()
+    train_labels = df[cfg.label_cols].astype(float).values.tolist()
 
+    print("Starting tokenization...")
     # encodings is the tokenized version of the texts
     train_encodings = tokenizer(train_texts, truncation=True, padding=True, max_length=cfg.max_length)
+    print("Finished tokenization...")
     # dataset is used to create batches for training
     train_dataset = MultiLabelDataset(train_encodings, train_labels)
     # loader is used to load the data in batches

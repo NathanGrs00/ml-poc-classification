@@ -16,7 +16,7 @@ class Config:
     learning_rate: float = 2e-5
     # num_epochs is how many times we go through the entire training dataset
     # 1 epoch is 1 full pass through the training data
-    num_epochs: int = 10
+    num_epochs: int = 3
     # csv_path is the path to the CSV file containing our dataset
     csv_path: str = "multilabel_classifier/data/data.csv"
     # label_cols is a list of column names in the CSV that contain the labels
