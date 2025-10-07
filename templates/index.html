@@ -14,7 +14,18 @@
     <label for="user-input">Enter text:</label> <br>
     <textarea id="user-input" placeholder="Enter text"></textarea> <br>
     <button id="submit-btn">Submit</button>
-    <div id="result"></div>
+    <div id="wrapper">
+        <div id="hate_speech"><p>This message is likely hatespeech</p></div>
+        <div id="violence"><p>This message likely contains violence.</p></div>
+        <div id="directed_hate_speech"><p>This message is likely directed to a single individual</p></div>
+        <div id="gender"><p>This message is likely related to genders</p></div>
+        <div id="race"><p>This message is likely related to race</p></div>
+        <div id="religion"><p>This message is likely related to religion</p></div>
+        <div id="national_origin"><p>This message is likely related to nationality or origin</p></div>
+        <div id="sexual_orientation"><p>This message is likely related to sexual orientation</p></div>
+        <div id="disability"><p>This message is likely related to disability</p></div>
+        <div id="not_hate_speech"><p>This message is probably not hatespeech</p></div>
+    </div>
     <script src="/static/js/script.js"></script>
 </body>
 </html>

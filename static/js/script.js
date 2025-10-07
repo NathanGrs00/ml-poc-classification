@@ -15,24 +15,33 @@ document.getElementById('submit-btn').onclick = function() {
         .then(response => response.json())
         // The data from the response is used to update the HTML content of the result div.
         .then(data => {
-            // pastes the prediction, labels, and active labels into the result div.
-            const predictions = data.result;
-            const labels = data.labels;
-            // activeLabels filters the labels based on the predictions.
-            const activeLabels = labels
-                // .filter takes two arguments, the label and its index.
-                // index === 1 means that the label is active.
-                .filter((label, index) => predictions[index] === 1);
+            // An array of all the label divs in the HTML.
+            const labelDivs = [
+                'hate_speech', 'violence', 'directed_hate_speech', 'gender',
+                'race', 'religion', 'national_origin', 'sexual_orientation',
+                'disability', 'not_hate_speech'
+            ];
+            // Hide all label divs
+            labelDivs.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
 
-            // Gets the result div from the HTML and updates its innerHTML.
-            // InnerHTML means that it can contain HTML tags.
-            // Strong means that the text is bold.
-            // ${variable} is used to insert the value of a variable into a string.
-            // In this case it inserts all the active labels joined by a comma.
-            // If there are no active labels, it shows 'None'.
-            document.getElementById('result').innerHTML = `
-            <strong>Detected Labels:</strong> ${activeLabels.join(', ') || 'None'}
-        `;
+            // Show only active divs and set their text
+            data.result.forEach((active, idx) => {
+                if (active === 1) {
+                    const divId = data.labels[idx];
+                    const div = document.getElementById(divId);
+                    if (div) {
+                        div.style.display = 'block';
+                    }
+                }
+             });
+
+             // Show not_hate_speech if hate_speech is 0
+             const hateSpeechIdx = data.labels.indexOf('hate_speech');
+             if (hateSpeechIdx !== -1 && data.result[hateSpeechIdx] === 0) {
+                document.getElementById('not_hate_speech').style.display = 'block';
+             }
         })
         // catch is used to handle the error if the fetch fails.
         .catch(error => {

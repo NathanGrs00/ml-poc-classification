@@ -24,3 +24,57 @@ button {
     border-radius: 10px;
     margin-top: 10px;
 }
+
+#wrapper > div {
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 150px;
+    height: 200px;
+    display: none;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#wrapper {
+    display: flex;
+}
+
+#hate_speech {
+    background: red;
+}
+
+#violence {
+    background: cyan;
+}
+
+#directed_hate_speech {
+    background: green;
+}
+
+#gender {
+    background: lightpink;
+}
+
+#religion {
+    background: orange;
+}
+
+#race {
+    background: yellow;
+}
+
+#disability {
+    background: pink;
+}
+
+#sexual_orientation {
+    background: brown;
+}
+
+#national_origin {
+    background: gray;
+}
+
+#not_hate_speech {
+    background: lightgreen;
+}
