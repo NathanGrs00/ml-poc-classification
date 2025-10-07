@@ -35,13 +35,13 @@ document.getElementById('submit-btn').onclick = function() {
                         div.style.display = 'block';
                     }
                 }
-             });
+            });
 
-             // Show not_hate_speech if hate_speech is 0
-             const hateSpeechIdx = data.labels.indexOf('hate_speech');
-             if (hateSpeechIdx !== -1 && data.result[hateSpeechIdx] === 0) {
-                document.getElementById('not_hate_speech').style.display = 'block';
-             }
+            // Show not_hate_speech if hate_speech is 0
+            const hateSpeechIdx = data.labels.indexOf('hate_speech');
+            if (hateSpeechIdx !== -1 && data.result[hateSpeechIdx] === 0) {
+               document.getElementById('not_hate_speech').style.display = 'block';
+            }
         })
         // catch is used to handle the error if the fetch fails.
         .catch(error => {
