@@ -37,15 +37,7 @@ pip install -r requirements.txt
 
 > 💡 Python 3.8+ is recommended.
 
-### 3️⃣ Train the Model
-
-Run the training script to load the CSV dataset, fine-tune the model, and save it:
-
-```bash
-python train.py
-```
-
-### 4️⃣ Launch the Web Server
+### 3️⃣ Launch the Web Server
 
 Start the Flask app:
 
