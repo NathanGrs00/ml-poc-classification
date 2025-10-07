@@ -68,6 +68,15 @@ Click the localhost link flask generates. It will show a simple HTML page with a
 
 ## 🗺️ Roadmap
 
+Feedback from peer students included the following changes to be implemented in the Proof of Concept:
+- Model is not reliable enough.
+  - [ ] Extend dataset with more data.
+  - [ ] Balance the percentage of hateful and neutral comments.
+  - [x] Verify the current labeled data in the dataset.
+- UI looks too simple, result is hard to read.
+  - [ ] Change the labels to a more formatted version. Instead of just displaying 'violence' display a little more information.
+  - [ ] Give each result a colored label
+
 This PoC is a stepping stone towards a larger application. Future plans are:
 
 - 🧾 Adding OCR to scan document/text image input
