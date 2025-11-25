@@ -27,7 +27,14 @@ This PoC is developed as a technical foundation for a future larger project that
 git clone https://github.com/NathanGrs00/ml-poc-classification.git
 cd ml-poc-classification
 ```
-### 2️⃣ Install Dependencies
+
+### 2️⃣ Install git large file storage and pull the model
+```bash
+git lfs install
+git lfs pull
+```
+
+### 3️⃣ Install Dependencies
 
 Use `pip` to install all the required packages:
 
@@ -37,7 +44,7 @@ pip install -r requirements.txt
 
 > 💡 Python 3.8+ is recommended.
 
-### 3️⃣ Launch the Web Server
+### 4️⃣ Launch the Web Server
 
 Start the Flask app:
 
